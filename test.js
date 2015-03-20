@@ -30,7 +30,7 @@ describe('Restify URL Version', function() {
 
     it('querystring', function(done) {
       request(server)
-        .get('/?_v=1.0.0')
+        .get('/?_v=1.0.0&_v=1.0.0&_v=1.2.0')
         .expect(200, done)
     })
 

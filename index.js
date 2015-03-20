@@ -26,10 +26,11 @@ module.exports = function(keys, header) {
     for (var i = 0; i < keys.length; i++) {
       var key = keys[i]
       if (query.hasOwnProperty(key)) {
-        req.headers[header] = query[key]
+        var val = query[key]
+        req.headers[header] = Array.isArray(val) ? val[0] : val
         return next()
       }
     }
     return next()
   }
-}
+};
